@@ -1,12 +1,25 @@
-# React + Vite
+# 🚀 G-Scores - Student Score Management
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern web application for searching and managing student exam scores, built with **React**, **Tailwind CSS**, and **Vite**.
 
-Currently, two official plugins are available:
+## 🔧 Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- ⚛️ **ReactJS** – UI Library
+- 💨 **Tailwind CSS** – Utility-first CSS framework
+- ⚡ **Vite** – Lightning-fast development build tool
+- 📦 **React Router** – Routing
+- 🔍 **Axios** – HTTP requests
 
-## Expanding the ESLint configuration
+---
+## 🛠️ Installation
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+# Clone the repository
+git clone https://github.com/htthangcse/GScores-FE.git
+
+# Install dependencies
+npm install
+
+# Start the dev server
+npm run dev
+Visit: http://localhost:5173
