@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {
-  BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
+  BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer
 } from 'recharts';
-
 import { fetchScoreLevelsReportAPI } from '../../apis/index';
 
 const DashBoard = () => {
@@ -24,15 +23,17 @@ const DashBoard = () => {
           lich_su: 'History',
           ngoai_ngu: 'Foreign Language',
           sinh_hoc: 'Biology',
-          // thêm các môn khác nếu có
         };
 
-        const arr = Object.entries(result).map(([subject, scores]) => ({
+        const transformedData = Object.entries(result).map(([subject, scores]) => ({
           subject: subjectNameMap[subject] || subject,
-          ...scores
+          excellent: scores.excellent,
+          good: scores.good,
+          average: scores.average,
+          weak: scores.weak
         }));
 
-        setData(arr);
+        setData(transformedData);
       } catch (error) {
         console.error("Failed to fetch score levels report:", error);
       } finally {
@@ -48,28 +49,22 @@ const DashBoard = () => {
   }
 
   return (
-    <div className="w-full max-w-5xl h-full mx-auto p-4">
-      <h2 className="text-2xl font-bold mb-6 text-center">Score Distribution by Subject</h2>
+    <div className="w-full max-w-6xl mx-auto p-4">
+      <h2 className="text-2xl font-bold mb-6 text-center">Student Score Levels by Subject</h2>
       <ResponsiveContainer width="100%" height={400}>
-        <BarChart data={data} margin={{ top: 5, right: 20, left: 20, bottom: 50  }}>
+        <BarChart
+          data={data}
+          margin={{ top: 10, right: 30, left: 10, bottom: 50 }}
+          className='cursor-pointer'
+        >
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis 
-            dataKey="subject" 
-            interval={0}
-            angle={-25}
-            textAnchor="end"
-          />
+          <XAxis dataKey="subject" angle={-20} textAnchor="end" interval={0} />
           <YAxis />
-          <Tooltip />
-          <Legend 
-            layout="horizontal"
-            verticalAlign="top"
-            align="center"
-          />
-          <Bar dataKey="excellent" fill="#4ade80" name=">= 8" />
-          <Bar dataKey="good" fill="#60a5fa" name="6 - 8" />
-          <Bar dataKey="average" fill="#facc15" name="4 - 6" />
-          <Bar dataKey="weak" fill="#f87171" name="< 4" />
+          <Tooltip formatter={(value) => `${value} students`} />
+          <Bar dataKey="excellent" stackId="a" fill="#16a34a" name="Excellent (>=8)" />
+          <Bar dataKey="good" stackId="a" fill="#3b82f6" name="Good (6-8)" />
+          <Bar dataKey="average" stackId="a" fill="#facc15" name="Average (4-6)" />
+          <Bar dataKey="weak" stackId="a" fill="#ef4444" name="Weak (<4)" />
         </BarChart>
       </ResponsiveContainer>
     </div>

@@ -1,5 +1,5 @@
 import axios from 'axios'
-const API_ROOT = 'http://localhost:3000'
+const API_ROOT = 'http://localhost:8017'
 
 export const fetchStudentScoreDetailsAPI = async (studentId) => {
   const response = await axios.get(`${API_ROOT}/students/score/${studentId}`)
