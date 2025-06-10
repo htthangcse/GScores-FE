@@ -23,7 +23,7 @@ const SearchScore = () => {
       setError("");
     } catch (err) {
       setStudentData(null);
-      setError("Student not found.");
+      setError("Student not found.", err);
     }
   };
 
