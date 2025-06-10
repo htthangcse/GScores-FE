@@ -24,7 +24,7 @@ npm install
 npm run dev
 Visit: http://localhost:5173
 
-# 🚀 Deploy Frontend to Vercel
+## 🚀 Deploy Frontend to Vercel
 # 🌐 Deployment Steps:
 Go to https://vercel.com and log in with your GitHub account.
 
