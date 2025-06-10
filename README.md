@@ -24,8 +24,8 @@ npm install
 npm run dev
 Visit: http://localhost:5173
 
-🚀 Deploy Frontend to Vercel
-🌐 Deployment Steps:
+# 🚀 Deploy Frontend to Vercel
+# 🌐 Deployment Steps:
 Go to https://vercel.com and log in with your GitHub account.
 
 Click New Project and import the GScores-FE repository.
